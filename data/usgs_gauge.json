@@ -1,0 +1,10 @@
+{
+  "site": "09342500",
+  "source": "USGS NWIS instantaneous values (provisional)",
+  "variable": "Gage height (ft)",
+  "peak": 15.02,
+  "peak_time_utc": "2026-10-23 11:30:00+00:00",
+  "value_at_before_pass": 6.89,
+  "value_at_after_pass": 9.02,
+  "discharge_peak_cfs": 9230
+}
