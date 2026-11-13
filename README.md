@@ -41,7 +41,7 @@ For AI answers, set your Claude API key before starting (never put it in the cod
 - Add ANTHROPIC_API_KEY as a secret in the hosting settings if you want AI answers. Never commit the key.
 
 ## Checks
-All Step 12 checks passed in the notebook: layers line up, dates and sources match the radar files, results are reproducible, missing data gives clear errors, the AI refuses unsupported claims, and no API key is stored.
+Checks run during development all passed: layers line up, dates and sources match the radar files, results are reproducible, missing data gives clear errors, the AI refuses unsupported claims, and no API key is stored.
 
 ## Team
 - Ramy Slait
