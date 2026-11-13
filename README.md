@@ -53,5 +53,8 @@ All Step 12 checks passed in the notebook: layers line up, dates and sources mat
 | Backend / deployment engineer | (add name) | API server and hosting |
 | Geospatial / report engineer | (add name) | Map layers, legend, report |
 
+## AI-use disclosure
+We used Claude (Anthropic) as a coding assistant to help write and debug parts of the Python notebook, web map, and backend. Our team chose the challenge, study area and flood event, selected the NISAR scenes, made the analysis decisions (quality rules, the 3 dB threshold, the river near/far check), reviewed and tested all code, and wrote the conclusions and limitations. The website's question box can use the Claude API to explain the results in plain language; it answers only from our verified results and does not claim that any specific home flooded. All data comes from NASA-ISRO NISAR (via ASF) and OpenStreetMap; no AI-generated data or images are used.
+
 ## License
 Code: MIT (see LICENSE). Data: see DATA_SOURCES.md.

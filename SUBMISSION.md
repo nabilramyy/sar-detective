@@ -21,6 +21,9 @@ Two NISAR L2 GCOV scenes (track 27, frame 70, HH polarization), read remotely an
 6. Ask the AI: "Does this mean my street flooded?" - it says the map cannot tell.
 7. Report: open and print.
 
+## AI-use disclosure
+We used Claude (Anthropic) as a coding assistant to help write and debug parts of the Python notebook, web map, and backend. Our team chose the challenge, study area and flood event, selected the NISAR scenes, made the analysis decisions (quality rules, the 3 dB threshold, the river near/far check), reviewed and tested all code, and wrote the conclusions and limitations. The website's question box can use the Claude API to explain the results in plain language; it answers only from our verified results and does not claim that any specific home flooded. All data comes from NASA-ISRO NISAR (via ASF) and OpenStreetMap; no AI-generated data or images are used.
+
 ## Check on the event's submission page before submitting
 - [ ] Deadline and time zone
 - [ ] Required fields (title, description, team, links)
