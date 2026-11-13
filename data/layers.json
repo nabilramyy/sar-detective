@@ -1,0 +1,71 @@
+{
+  "title": "Possible flood-related radar change - San Juan River, Pagosa Springs, CO",
+  "dates": {
+    "before": "2026-10-14",
+    "after": "2026-10-26",
+    "flood_peak_reported": "2026-10-23"
+  },
+  "bounds_lat_lon": [
+    [
+      37.224029,
+      -107.067621
+    ],
+    [
+      37.316,
+      -106.952478
+    ]
+  ],
+  "layers": [
+    {
+      "id": "before",
+      "file": "before.png",
+      "label": "Radar before (Oct 14)"
+    },
+    {
+      "id": "after",
+      "file": "after.png",
+      "label": "Radar after (Oct 26)"
+    },
+    {
+      "id": "change",
+      "file": "change_dB.png",
+      "label": "Change in radar signal (dB)"
+    },
+    {
+      "id": "flagged",
+      "file": "flagged_change.png",
+      "label": "Flagged change (3 dB or more)"
+    },
+    {
+      "id": "river",
+      "file": "river.geojson",
+      "label": "San Juan River"
+    }
+  ],
+  "legend": "legend.png",
+  "method": "HH backscatter, 5x5 speckle filter, overall -0.57 dB offset removed, threshold 3 dB",
+  "results": {
+    "flagged_darker_km2": 0.233,
+    "flagged_brighter_km2": 0.253,
+    "near_river_flagged_percent": 2.85,
+    "far_from_river_flagged_percent": 0.35,
+    "good_example_lat_lon": [
+      37.24031,
+      -107.01065
+    ],
+    "failure_case_lat_lon": [
+      37.29413,
+      -106.96143
+    ]
+  },
+  "plain_summary": "Radar shows more change along the San Juan River than away from it: about 8 times more flagged pixels within 200 m of the river, mostly brighter. This fits the reported October flood, but it is flagged change, not confirmed flooding.",
+  "limitations": [
+    "Before and after use different processing versions (provisional vs validated) - part of any change may come from processing",
+    "Overall median change is about -0.6 dB across the whole box, likely not flood-related",
+    "After image is ~3 days after the Oct 23 crest, so the flood may have been receding",
+    "About 1,695 pixels (0.17%) have fewer than 1 look and are noisier (same pixels on both dates)",
+    "Mountain valley terrain - steep slopes can cause radar artifacts",
+    "Reference evidence so far is news reports and emergency declarations, not an official flood-extent map",
+    "No official flood-extent map was available to check against, so results are exploratory."
+  ]
+}

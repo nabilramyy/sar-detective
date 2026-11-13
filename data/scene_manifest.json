@@ -1,0 +1,115 @@
+{
+  "project_question": "Help people who live in flood-prone areas see where the San Juan River flood changed the ground around Pagosa Springs, CO in October 2026, using NISAR radar.",
+  "event": "San Juan River flood, Pagosa Springs CO; crest just over 15 ft early Oct 23 2026 (news reports)",
+  "study_area": {
+    "center_lat_lon": [
+      37.27,
+      -107.01
+    ],
+    "box_size_km": 10,
+    "crs": "EPSG:32613",
+    "bounds_utm_m": {
+      "left": 316780,
+      "bottom": 4121720,
+      "right": 326780,
+      "top": 4131720
+    },
+    "size_pixels": [
+      1000,
+      1000
+    ]
+  },
+  "scenes": [
+    {
+      "role": "before",
+      "scene_id": "NISAR_L2_PR_GCOV_033_027_D_070_4005_DHDH_A_20261014T015823_20261014T015857_P05023_N_F_J_001",
+      "source_link": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_033_027_D_070_4005_DHDH_A_20261014T015823_20261014T015857_P05023_N_F_J_001/NISAR_L2_PR_GCOV_033_027_D_070_4005_DHDH_A_20261014T015823_20261014T015857_P05023_N_F_J_001.h5",
+      "acquisition_start_utc": "2026-10-14T01:58:23.000000000",
+      "acquisition_end_utc": "2026-10-14T01:58:57.999342105",
+      "product": "NISAR L2 GCOV (Geocoded Polarimetric Covariance)",
+      "measurement_layer": "/science/LSAR/GCOV/grids/frequencyA/HHHH",
+      "polarization": "HH (from dual-pol DHDH)",
+      "frequency": "frequencyA",
+      "radar_band": "L",
+      "track": 27,
+      "frame": 70,
+      "absolute_orbit": 6354,
+      "orbit_pass_direction": "Descending",
+      "look_direction": "Left",
+      "crs": "EPSG:32613 (WGS 84 / UTM zone 13N)",
+      "pixel_spacing_m": 10.0,
+      "processing_version": "1.0.11",
+      "processing_datetime_utc": "2026-10-16T03:44:55",
+      "maturity": "PROVISIONAL (beta collection NISAR_L2_GCOV_PROVISIONAL_V1)",
+      "has_input_data_exception": 0,
+      "local_outputs": [
+        "pagosa_before_HHHH.tif",
+        "pagosa_before_HH_dB_ready.tif",
+        "pagosa_before_display.png"
+      ]
+    },
+    {
+      "role": "after",
+      "scene_id": "NISAR_L2_PR_GCOV_034_027_D_070_4005_DHDH_A_20261026T015823_20261026T015858_P05036_N_F_J_001",
+      "source_link": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_V1/NISAR_L2_PR_GCOV_034_027_D_070_4005_DHDH_A_20261026T015823_20261026T015858_P05036_N_F_J_001/NISAR_L2_PR_GCOV_034_027_D_070_4005_DHDH_A_20261026T015823_20261026T015858_P05036_N_F_J_001.h5",
+      "acquisition_start_utc": "2026-10-26T01:58:23.000000000",
+      "acquisition_end_utc": "2026-10-26T01:58:58.999342105",
+      "product": "NISAR L2 GCOV (Geocoded Polarimetric Covariance)",
+      "measurement_layer": "/science/LSAR/GCOV/grids/frequencyA/HHHH",
+      "polarization": "HH (from dual-pol DHDH)",
+      "frequency": "frequencyA",
+      "radar_band": "L",
+      "track": 27,
+      "frame": 70,
+      "absolute_orbit": 6527,
+      "orbit_pass_direction": "Descending",
+      "look_direction": "Left",
+      "crs": "EPSG:32613 (WGS 84 / UTM zone 13N)",
+      "pixel_spacing_m": 10.0,
+      "processing_version": "1.0.20",
+      "processing_datetime_utc": "2026-11-10T17:41:56",
+      "maturity": "VALIDATED (collection NISAR_L2_GCOV_V1)",
+      "has_input_data_exception": 0,
+      "local_outputs": [
+        "pagosa_after_HHHH.tif",
+        "pagosa_after_HH_dB_ready.tif",
+        "pagosa_after_display.png"
+      ]
+    }
+  ],
+  "shared_outputs": [
+    "pagosa_valid_mask.tif",
+    "scene_manifest.json"
+  ],
+  "quality_checks": {
+    "valid_pixels_percent": 100.0,
+    "rules": "mask not 0/255; exception bit 2 (sample slip) not set; for codes >=256 the HH fully-focused bit (256) must be set; finite and > 0"
+  },
+  "quality_caveats": [
+    "Before and after use different processing versions (provisional vs validated) - part of any change may come from processing",
+    "Overall median change is about -0.6 dB across the whole box, likely not flood-related",
+    "After image is ~3 days after the Oct 23 crest, so the flood may have been receding",
+    "About 1,695 pixels (0.17%) have fewer than 1 look and are noisier (same pixels on both dates)",
+    "Mountain valley terrain - steep slopes can cause radar artifacts",
+    "Reference evidence so far is news reports and emergency declarations, not an official flood-extent map"
+  ],
+  "change_detection": {
+    "method": "after_dB - before_dB on HH backscatter",
+    "speckle_filter": "5x5 mean filter in linear power, then dB",
+    "excluded_pixels": "invalid quality flags or fewer than 1 look",
+    "offset_removed_dB": -0.573,
+    "offset_reason": "whole-box median shift, likely from different processing versions",
+    "threshold_dB": 3.0,
+    "classes": {
+      "0": "no flagged change",
+      "1": "darker by >= threshold",
+      "2": "brighter by >= threshold",
+      "255": "invalid"
+    },
+    "outputs": [
+      "pagosa_change_dB.tif",
+      "pagosa_change_class.tif"
+    ],
+    "note": "Threshold is an analysis choice, not a probability. Flagged change is not confirmed flooding."
+  }
+}
